@@ -55,14 +55,6 @@ export default function Home() {
               3rd year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
               vulnerabilities to strengthen security systems.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button className="bg-red-600 hover:bg-red-700 text-white">
-                View Projects <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white">
-                Contact Me
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -383,7 +375,7 @@ export default function Home() {
                 <Mail className="h-6 w-6 text-red-500 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold mb-1">Email</h3>
-                  <p className="text-gray-400">contact@yourname.com</p>
+                  <p className="text-gray-400">siddharthnigam002@gmail.com</p>
                 </div>
               </div>
 
@@ -391,7 +383,7 @@ export default function Home() {
                 <Linkedin className="h-6 w-6 text-red-500 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold mb-1">LinkedIn</h3>
-                  <p className="text-gray-400">linkedin.com/in/yourname</p>
+                  <p className="text-gray-400">linkedin.com/in/siddharth-nigam-a7bab1257/</p>
                 </div>
               </div>
 
@@ -399,7 +391,7 @@ export default function Home() {
                 <Github className="h-6 w-6 text-red-500 mt-1" />
                 <div>
                   <h3 className="text-lg font-bold mb-1">GitHub</h3>
-                  <p className="text-gray-400">github.com/yourusername</p>
+                  <p className="text-gray-400">github.com/InfiniteTrident23</p>
                 </div>
               </div>
             </div>
@@ -455,23 +447,19 @@ export default function Home() {
               <span>CyberPortfolio</span>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="#" className="text-gray-400 hover:text-red-500">
+              <Link href="https://github.com/InfiniteTrident23" className="text-gray-400 hover:text-red-500">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-red-500">
+              <Link href="https://www.linkedin.com/in/siddharth-nigam-a7bab1257/" className="text-gray-400 hover:text-red-500">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-red-500">
+              <Link href="siddharthnigam002@gmail.com" className="text-gray-400 hover:text-red-500">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
             </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-red-900/10 text-center text-sm text-gray-400">
-            <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
-            <p className="mt-2">Designed and built with security in mind.</p>
           </div>
         </div>
       </footer>
