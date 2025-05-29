@@ -14,46 +14,46 @@ interface Experience {
 
 const internships: Experience[] = [
   {
-    role: "Security Analyst Intern",
-    company: "CyberDefense Corp",
-    location: "New Delhi, India",
-    startDate: "May 2023",
-    endDate: "Aug 2023",
-    description: [
-      "Conducted vulnerability assessments on web applications and network infrastructure",
-      "Assisted in implementing security controls and monitoring solutions",
-      "Participated in incident response drills and security awareness training",
-      "Documented security findings and presented recommendations to senior management",
-    ],
-    skills: ["Vulnerability Assessment", "SIEM", "Incident Response", "Security Documentation"],
-  },
-  {
-    role: "Penetration Testing Intern",
-    company: "SecureNet Solutions",
+    role: "Cybersecurity VAPT Intern",
+    company: "SafeYourWeb",
     location: "Remote",
-    startDate: "Jan 2023",
-    endDate: "Apr 2023",
+    startDate: "Oct 2024",
+    endDate: "Jan 2025",
     description: [
-      "Performed web application penetration testing using OWASP methodology",
-      "Identified and exploited security vulnerabilities in test environments",
-      "Created detailed reports outlining findings and remediation steps",
-      "Collaborated with development teams to implement security fixes",
+      "Conducted vulnerability assessments on 4 projects, identifying and mitigating 80% of critical risks.",
+      "Verified security activities and prepared detailed reports, improving risk assessment processes by 25%.",
+      "Researched and analyzed cybersecurity threats, enhancing proactive threat detection by 60%.",
+      "Investigated and Reported security incidents, contributing to a 30% improvement in incident response time.",
     ],
-    skills: ["Web App Pentesting", "OWASP Top 10", "Burp Suite", "Technical Documentation"],
+    skills: ["Vulnerability Assessment", "Web Testing", "API Testing", "Security Documentation"],
   },
   {
-    role: "Junior Security Researcher",
-    company: "InfoSec Labs",
-    location: "Bangalore, India",
-    startDate: "Jun 2022",
-    endDate: "Aug 2022",
+    role: "Cybersecurity Job Simulation",
+    company: "JP Morgan Chase & Co. ",
+    location: "Forage - Remote",
+    startDate: "Aug 2024",
+    endDate: "Sept 2024",
     description: [
-      "Researched emerging threats and attack vectors in cybersecurity landscape",
-      "Analyzed malware samples and documented attack patterns",
-      "Contributed to threat intelligence reports for enterprise clients",
-      "Assisted in developing security awareness training materials",
+      "Processed and analyzed 50,000+ email records, applying data cleaning and classification techniques using Python and Pandas.",
+      "Developed and integrated an OTP-based authentication system in a Django web app, enhancing login security by 80%.",
+      "Designed and trained an email classification model with 97.4% accuracy using Logistic Regression.",
+      ": Processed 10,000+ email samples, applied CountVectorizer for feature extraction, and optimized model performance with an 80-20 training-test split.",
     ],
-    skills: ["Threat Intelligence", "Malware Analysis", "Research", "Technical Writing"],
+    skills: ["Data Analysis", "Machine Learning", "Python", "Django and Pandas Frameworks"],
+  },
+  {
+    role: "Cybersecurity Intern",
+    company: "Wesecure Technologies",
+    location: "Rohini, Delhi",
+    startDate: "May 2024",
+    endDate: "Jun 2024",
+    description: [
+      "Streamlined firewall configurations to reduce exposure to external threats.",
+      "Enforced security policies for mobile devices and remote access.",
+      "Provided technical support during maintenance to minimize disruptions.",
+      "Tested state-of-the-art security tools, like SIEM, XDR, EDR, etc. enhancing threat detection capabilities.",
+    ],
+    skills: ["Networking", "Firewalls", "SIEM", "Endpoint Security", "Technical Support", "XDR/EDR"],
   },
 ]
 
@@ -69,8 +69,6 @@ export function ExperienceTimeline() {
         <div className="flex justify-between items-center relative">
           {internships.map((internship, index) => (
             <div key={index} className="relative flex-1 mx-4">
-              {/* Timeline dot */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-red-600 border-4 border-zinc-900 z-10"></div>
 
               {/* Card */}
               <motion.div
@@ -154,16 +152,6 @@ export function ExperienceTimeline() {
                   </div>
                 </motion.div>
 
-                {/* Date indicator above the card */}
-                <motion.div
-                  className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-red-900/20 text-red-400 px-3 py-1 rounded-full text-xs font-medium border border-red-900/30"
-                  initial={{ opacity: 0, y: -10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                >
-                  {internship.startDate.split(" ")[1]} {/* Year */}
-                </motion.div>
               </motion.div>
             </div>
           ))}

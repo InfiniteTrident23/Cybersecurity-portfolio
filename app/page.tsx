@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Shield, Code, Terminal, Lock, Server, Github, Linkedin, Mail, ChevronRight, ExternalLink } from "lucide-react"
+import { Shield, Code, Terminal, Lock, Server, Github, Linkedin, Mail, ChevronRight, ExternalLink, Network } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { StaggeredContainer, StaggeredItem } from "@/components/staggered-container"
 import { TypewriterText } from "@/components/typewriter-text"
@@ -30,7 +30,7 @@ export default function Home() {
             >
               <Shield className="h-6 w-6" />
             </motion.div>
-            <span>CyberPortfolio</span>
+            <span>Siddharth Nigam</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {["About", "Skills", "Experience", "Projects", "Contact"].map((item, index) => (
@@ -55,12 +55,12 @@ export default function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Button
-              variant="outline"
-              className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all"
-            >
-              Resume
-            </Button>
+            <Link href="/certificates/Siddharth%20Nigam%20Resume%20March%202025.pdf" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all">
+                Resume
+              </Button>
+            </Link>
+
           </motion.div>
         </div>
       </motion.header>
@@ -117,29 +117,7 @@ export default function Home() {
               vulnerabilities to strengthen security systems.
             </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
-            >
-              <Button className="bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all group">
-                View Projects
-                <motion.div
-                  className="ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </motion.div>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all"
-              >
-                Contact Me
-              </Button>
-            </motion.div>
+            
           </div>
         </div>
       </section>
@@ -341,41 +319,50 @@ export default function Home() {
           <AnimatedSection className="mt-12 pt-12 border-t border-red-900/20" delay={0.5}>
             <h3 className="text-2xl font-bold mb-8 text-center">Certifications</h3>
             <StaggeredContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.3}>
-              <StaggeredItem>
-                <motion.div
-                  className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6"
-                  whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div
-                    className="bg-red-950/30 p-4 rounded-lg"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <Shield className="h-8 w-8 text-red-500" />
-                  </motion.div>
-                  <div>
-                    <h4 className="text-lg font-bold">Certified Ethical Hacker (CEH)</h4>
-                    <p className="text-gray-400">EC-Council</p>
-                  </div>
-                </motion.div>
-              </StaggeredItem>
 
-              <StaggeredItem>
-                <motion.div
-                  className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6 opacity-60"
-                  whileHover={{ opacity: 0.8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="bg-red-950/30 p-4 rounded-lg">
-                    <Server className="h-8 w-8 text-red-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold">CompTIA Security+</h4>
-                    <p className="text-gray-400">In Progress</p>
-                  </div>
-                </motion.div>
-              </StaggeredItem>
+              <Link href={"/certificates/CEH%20Short%20training.jpg"} target="_blank" rel="noopener noreferrer">
+                <StaggeredItem>
+                  <motion.div
+                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6"
+                    whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div
+                      className="bg-red-950/30 p-4 rounded-lg"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.8 }}
+                    >
+                      <Shield className="h-8 w-8 text-red-500" />
+                    </motion.div>
+                    <div>
+                      <h4 className="text-lg font-bold">Certified Ethical Hacker (CEH)</h4>
+                      <p className="text-gray-400">EC-Council</p>
+                    </div>
+                  </motion.div>
+                </StaggeredItem>
+              </Link>
+
+              <Link href={"/certificates/CCNA%20Certificate.jpg"} target="_blank" rel="noopener noreferrer">
+                <StaggeredItem>
+                  <motion.div
+                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6"
+                    whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div
+                      className="bg-red-950/30 p-4 rounded-lg"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.8 }}
+                    >
+                      <Network className="h-8 w-8 text-red-500" />
+                    </motion.div>
+                    <div>
+                      <h4 className="text-lg font-bold">Cisco Certified Network Associate (CCNA)</h4>
+                      <p className="text-gray-400">Network Bulls</p>
+                    </div>
+                  </motion.div>
+                </StaggeredItem>
+              </Link>
             </StaggeredContainer>
           </AnimatedSection>
         </div>
@@ -654,8 +641,6 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <p>© {new Date().getFullYear()} Siddharth Nigam. All rights reserved.</p>
-              <p className="mt-2">Designed and built with security in mind.</p>
             </motion.div>
           </div>
         </footer>
