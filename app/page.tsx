@@ -6,6 +6,7 @@ import { Shield, Code, Terminal, Lock, Server, Github, Linkedin, Mail, ChevronRi
 import { AnimatedSection } from "@/components/animated-section"
 import { StaggeredContainer, StaggeredItem } from "@/components/staggered-container"
 import { TypewriterText } from "@/components/typewriter-text"
+import { ExperienceTimeline } from "@/components/experience-timeline"
 import { motion } from "framer-motion"
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
             <span>CyberPortfolio</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
-            {["About", "Skills", "Projects", "Contact"].map((item, index) => (
+            {["About", "Skills", "Experience", "Projects", "Contact"].map((item, index) => (
               <motion.div
                 key={item}
                 initial={{ y: -20, opacity: 0 }}
@@ -122,7 +123,22 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.5 }}
             >
-            
+              <Button className="bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all group">
+                View Projects
+                <motion.div
+                  className="ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </motion.div>
+              </Button>
+              <Button
+                variant="outline"
+                className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all"
+              >
+                Contact Me
+              </Button>
             </motion.div>
           </div>
         </div>
@@ -365,8 +381,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-16 md:py-24 bg-zinc-950 relative">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
+            {Array.from({ length: 144 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="border border-red-900/10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.005 }}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold mb-4">Professional Experience</h2>
+            <p className="text-gray-400">
+              My journey in cybersecurity includes hands-on experience through internships, projects, and volunteer
+              work.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <ExperienceTimeline />
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-16 md:py-24 bg-zinc-950">
+      <section id="projects" className="py-16 md:py-24 bg-black">
         <div className="container px-4 md:px-6">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
@@ -466,7 +513,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-24 bg-black relative">
+      <section id="contact" className="py-16 md:py-24 bg-zinc-950 relative">
         <div className="absolute inset-0 z-0 opacity-20">
           <motion.div
             className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-red-900/20 to-transparent"
@@ -487,13 +534,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <StaggeredContainer className="space-y-6" staggerDelay={0.2}>
               {[
-                { icon: Mail, title: "Email", info: "contact@yourname.com" },
-                { icon: Linkedin, title: "LinkedIn", info: "linkedin.com/in/yourname" },
-                { icon: Github, title: "GitHub", info: "github.com/yourusername" },
+                { icon: Mail, title: "Email", info: "siddharthnigam002@gmail.com" },
+                { icon: Linkedin, title: "LinkedIn", info: "linkedin.com/in/siddharth-nigam-a7bab1257/" },
+                { icon: Github, title: "GitHub", info: "github.com/InfiniteTrident23" },
               ].map((contact, index) => (
                 <StaggeredItem key={index}>
                   <motion.div
-                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-start gap-4"
+                    className="bg-black border border-red-900/20 rounded-lg p-6 flex items-start gap-4"
                     whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
                     transition={{ duration: 0.3 }}
                   >
@@ -511,7 +558,7 @@ export default function Home() {
 
             <AnimatedSection direction="right" delay={0.3}>
               <motion.div
-                className="bg-zinc-950 border border-red-900/20 rounded-lg p-6"
+                className="bg-black border border-red-900/20 rounded-lg p-6"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -523,7 +570,7 @@ export default function Home() {
                     <motion.input
                       id="name"
                       type="text"
-                      className="w-full px-3 py-2 bg-black border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                       placeholder="Your Name"
                       whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
                     />
@@ -535,7 +582,7 @@ export default function Home() {
                     <motion.input
                       id="email"
                       type="email"
-                      className="w-full px-3 py-2 bg-black border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                       placeholder="your@email.com"
                       whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
                     />
@@ -547,7 +594,7 @@ export default function Home() {
                     <motion.textarea
                       id="message"
                       rows={4}
-                      className="w-full px-3 py-2 bg-black border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
+                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                       placeholder="Your message..."
                       whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
                     />
@@ -564,7 +611,7 @@ export default function Home() {
 
       {/* Footer */}
       <AnimatedSection>
-        <footer className="py-8 border-t border-red-900/20 bg-zinc-950">
+        <footer className="py-8 border-t border-red-900/20 bg-black">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <motion.div
@@ -581,14 +628,18 @@ export default function Home() {
                 <span>CyberPortfolio</span>
               </motion.div>
               <div className="flex items-center gap-4">
-                {[Github, Linkedin, Mail].map((Icon, index) => (
+                {[
+                  { Icon: Github, href: "https://github.com/InfiniteTrident23" },
+                  { Icon: Linkedin, href: "https://www.linkedin.com/in/siddharth-nigam-a7bab1257/" },
+                  { Icon: Mail, href: "mailto:siddharthnigam002@gmail.com" },
+                ].map(({ Icon, href }, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.2, y: -2 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Link href="#" className="text-gray-400 hover:text-red-500 transition-colors">
+                    <Link href={href} className="text-gray-400 hover:text-red-500 transition-colors">
                       <Icon className="h-5 w-5" />
                       <span className="sr-only">{Icon.name}</span>
                     </Link>
@@ -603,7 +654,8 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-             
+              <p>© {new Date().getFullYear()} Siddharth Nigam. All rights reserved.</p>
+              <p className="mt-2">Designed and built with security in mind.</p>
             </motion.div>
           </div>
         </footer>
