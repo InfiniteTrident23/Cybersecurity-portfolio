@@ -258,21 +258,21 @@ export default function Home() {
                 title: "Penetration Testing",
                 description:
                   "Expert in identifying and exploiting vulnerabilities in networks, applications, and systems.",
-                skills: ["Web Application Testing", "Network Penetration", "Social Engineering"],
+                skills: ["Web Application Testing", "Network Penetration", "Vulnerability Assessment", "Reconnaissance & OSINT"],
               },
               {
                 icon: Lock,
                 title: "Security Tools",
                 description:
                   "Proficient with industry-standard security tools and frameworks for comprehensive assessments.",
-                skills: ["Metasploit Framework", "Burp Suite", "Wireshark"],
+                skills: ["Metasploit Framework", "Burp Suite", "Wireshark", "Nmap", "Dirbuster", "Katana"],
               },
               {
                 icon: Code,
                 title: "Programming",
                 description:
                   "Strong programming skills for developing security tools and automating security processes.",
-                skills: ["Python", "Bash Scripting", "PowerShell"],
+                skills: ["Python", "JavaScript", "C", "Bash Scripting", "PowerShell"],
               },
             ].map((skill, index) => (
               <StaggeredItem key={index}>
@@ -388,8 +388,7 @@ export default function Home() {
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">Professional Experience</h2>
             <p className="text-gray-400">
-              My journey in cybersecurity includes hands-on experience through internships, projects, and volunteer
-              work.
+              My journey in cybersecurity includes hands-on experience through internships and projects.
             </p>
           </AnimatedSection>
 
@@ -412,32 +411,32 @@ export default function Home() {
           <StaggeredContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.2}>
             {[
               {
-                title: "Network Vulnerability Scanner",
+                title: "AD Security Project",
                 description:
-                  "A custom-built vulnerability scanner that identifies security weaknesses in network infrastructure.",
+                  "This project involves setting up and securing a network environment using Active Directory, Splunk, Sysmon, and Atomic Red Team. The goal is to create a simulated network, configure logging and monitoring, and test security measures.",
                 tags: ["Python", "Network Security", "Automation"],
-                image: "/placeholder.svg?height=400&width=700",
+                image: "/certificates/AD.jpg",
               },
               {
-                title: "WAF Bypass Research",
+                title: "SOC Automation",
                 description:
-                  "Research on techniques to bypass modern Web Application Firewalls and recommended mitigations.",
-                tags: ["Web Security", "Research", "Exploitation"],
-                image: "/placeholder.svg?height=400&width=700",
+                  "An Automation Lab for Security Operations Center (SOC) tasks, focusing on automating incident response and threat detection processes using technologies like Wazuh, The Hive and Shuffle.",
+                tags: ["SOC Operations", "Wazuh", "The Hive", "Shuffle", "Incident Response"],
+                image: "/certificates/SOC.jpg",
               },
               {
-                title: "Phishing Campaign Simulator",
+                title: "CNN model for Packet-level Micro-behavior Classification",
                 description:
-                  "A tool for organizations to test employee awareness through simulated phishing campaigns.",
-                tags: ["Social Engineering", "Python", "Security Awareness"],
-                image: "/placeholder.svg?height=400&width=700",
+                  "This project explores packet-level micro-behaviour classification using Convolutional Neural Networks (CNNs) to categorize network packets as Tor, VPN, or regular traffic",
+                tags: ["Network Packet", "Python", "Machine Learning"],
+                image: "/certificates/CNN.jpg",
               },
               {
-                title: "IoT Security Framework",
+                title: "KPI Management System (ongoing)",
                 description:
-                  "A comprehensive security framework for assessing and securing Internet of Things devices.",
-                tags: ["IoT Security", "Firmware Analysis", "Hardware Security"],
-                image: "/placeholder.svg?height=400&width=700",
+                  "A comprehensive system for managemnt of KPIs for Manipal University Jaipur.",
+                tags: ["Web Dev", "TypeScript", "Next.js", "Tailwind CSS"],
+                image: "/certificates/KPI.jpg",
               },
             ].map((project, index) => (
               <StaggeredItem key={index}>
@@ -484,18 +483,6 @@ export default function Home() {
             ))}
           </StaggeredContainer>
 
-          <AnimatedSection className="mt-12 text-center" delay={0.5}>
-            <Button className="bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all group">
-              View All Projects
-              <motion.div
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-              >
-                <ExternalLink className="h-4 w-4" />
-              </motion.div>
-            </Button>
-          </AnimatedSection>
         </div>
       </section>
 
