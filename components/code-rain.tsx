@@ -27,7 +27,7 @@ export default function CodeRain() {
     const characters = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
 
     // Column setup
-    const fontSize = 14
+    const fontSize = 18 // Even larger font
     const columns = Math.floor(canvas.width / fontSize)
 
     // Initialize drops at random positions
@@ -39,11 +39,8 @@ export default function CodeRain() {
     // Drawing function
     const draw = () => {
       // Semi-transparent background to create fade effect
-      ctx.fillStyle = "rgba(0, 0, 0, 0.15)" // Increased from 0.1 to 0.15
+      ctx.fillStyle = "rgba(0, 0, 0, 0.25)" // Even faster fade
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      // Set text color to red variants
-      const baseColor = "#ff0000" // Red color
 
       // Draw characters
       for (let i = 0; i < drops.length; i++) {
@@ -56,23 +53,39 @@ export default function CodeRain() {
         // Calculate y position
         const y = drops[i] * fontSize
 
-        // Add gradient effect - brighter at the head of the column
-        const gradient = ctx.createLinearGradient(x, y - fontSize * 5, x, y)
-        gradient.addColorStop(0, "rgba(255, 0, 0, 0.2)")
-        gradient.addColorStop(1, "rgba(255, 50, 50, 1)")
+        // MAXIMUM BRIGHTNESS - maintain brightness throughout the entire trail
+        if (drops[i] > 0 && drops[i] < 3) {
+          // Ultra bright leading characters - almost white
+          ctx.fillStyle = "#ffffff" // Pure white
+          ctx.shadowColor = "#ff0000"
+          ctx.shadowBlur = 25
 
-        // Make the head character extra bright
-        if (drops[i] > 0 && drops[i] < 5) {
-          ctx.fillStyle = "rgba(255, 100, 100, 1)"
+          // Draw multiple times for extra brightness
+          ctx.font = `900 ${fontSize}px monospace`
+          ctx.fillText(text, x, y)
+          ctx.fillText(text, x, y) // Double draw
+        } else if (drops[i] >= 3 && drops[i] < 8) {
+          // Super bright red
+          ctx.fillStyle = "#ff6666" // Bright pink-red
+          ctx.shadowColor = "#ff0000"
+          ctx.shadowBlur = 20
+          ctx.font = `bold ${fontSize}px monospace`
+          ctx.fillText(text, x, y)
+        } else if (drops[i] >= 8 && drops[i] < 15) {
+          // Bright red
+          ctx.fillStyle = "#ff3333"
+          ctx.shadowColor = "#ff0000"
+          ctx.shadowBlur = 15
+          ctx.font = `bold ${fontSize}px monospace`
+          ctx.fillText(text, x, y)
         } else {
-          ctx.fillStyle = gradient
+          // Keep the rest bright red instead of fading
+          ctx.fillStyle = "#ff2222" // Bright red throughout
+          ctx.shadowColor = "#ff0000"
+          ctx.shadowBlur = 12
+          ctx.font = `600 ${fontSize}px monospace`
+          ctx.fillText(text, x, y)
         }
-
-        // Add glow effect
-        ctx.shadowColor = "#ff0000"
-        ctx.shadowBlur = 8
-        ctx.font = `${fontSize}px monospace`
-        ctx.fillText(text, x, y)
 
         // Reset shadow for next character
         ctx.shadowColor = "transparent"
@@ -89,7 +102,7 @@ export default function CodeRain() {
     }
 
     // Animation loop
-    const interval = setInterval(draw, 50)
+    const interval = setInterval(draw, 40) // Faster animation
 
     // Cleanup
     return () => {
