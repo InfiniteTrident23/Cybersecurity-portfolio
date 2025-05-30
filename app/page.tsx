@@ -659,7 +659,7 @@ export default function Home() {
           </div>
         </footer>
       </AnimatedSection>
-
+      {/*End of page */}
     </main>
   )
 }
