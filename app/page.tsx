@@ -8,6 +8,7 @@ import { StaggeredContainer, StaggeredItem } from "@/components/staggered-contai
 import { TypewriterText } from "@/components/typewriter-text"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { motion } from "framer-motion"
+import AsciiConverter from "@/components/ascii-converter"
 
 export default function Home() {
   return (
@@ -66,7 +67,7 @@ export default function Home() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+      <section className="pt-16 pb-16 md:pt-48 md:pb-48 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <motion.div
             className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-red-900/20 to-transparent"
@@ -86,38 +87,59 @@ export default function Home() {
             ))}
           </div>
         </div>
+
         <div className="container relative z-10 px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="grid md:grid-cols-2 items-center gap-12">
+            {/* Left Side - Graphic */}
             <motion.div
-              className="inline-block px-3 py-1 rounded-full bg-red-950/50 border border-red-500/20 text-red-500 text-sm font-medium mb-4"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 100 }}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="flex justify-center items-center h-full"
             >
-              Certified Ethical Hacker
+              <div className="max-h-[400px] w-full">
+                <AsciiConverter />
+              </div>
             </motion.div>
 
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold leading-tight"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
+            {/* Right side - Text Content */}
+            <motion.div
+              className="space-y-6 text-center md:text-left"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              Cybersecurity Professional &{" "}
-              <TypewriterText text="Penetration Tester" delay={2} className="text-red-500" />
-            </motion.h1>
+              <motion.div
+                className="inline-block px-3 py-1 rounded-full bg-red-950/50 border border-red-500/20 text-red-500 text-sm font-medium mb-4"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
+              >
+                Certified Ethical Hacker
+              </motion.div>
 
-            <motion.p
-              className="text-lg text-gray-400 md:text-xl max-w-2xl mx-auto"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              3rd year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
-              vulnerabilities to strengthen security systems.
-            </motion.p>
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                Cybersecurity Professional &{" "}
+                <TypewriterText text="Penetration Tester" delay={2.5} className="text-red-500" />
+              </motion.h1>
 
-            
+              <motion.p
+                className="text-lg text-gray-400 md:text-xl max-w-2xl"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.5 }}
+              >
+                3rd year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
+                vulnerabilities to strengthen security systems.
+              </motion.p>
+
+              
+            </motion.div>
           </div>
         </div>
       </section>
