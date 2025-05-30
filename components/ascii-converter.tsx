@@ -404,6 +404,7 @@ export default function AsciiConverter() {
                 fontSize: "0.4rem",
                 lineHeight: "0.4rem",
                 fontFamily: "monospace",
+
               }}
             />
           )}

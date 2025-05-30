@@ -9,10 +9,15 @@ import { TypewriterText } from "@/components/typewriter-text"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { motion } from "framer-motion"
 import AsciiConverter from "@/components/ascii-converter"
+import CodeRain from "@/components/code-rain"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="relative min-h-screen bg-background text-foreground overflow-hidden">
+      {/* Background code rain effect */}
+      <div className="fixed inset-0 z-0 opacity-20 dark:opacity-20 light:opacity-5">
+        <CodeRain />
+      </div>
       {/* Navigation */}
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-red-900/50"
@@ -67,7 +72,7 @@ export default function Home() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="pt-16 pb-16 md:pt-48 md:pb-48 relative overflow-hidden">
+      <section className="pt-16 pb-16 md:pt-48 md:pb-48 py-16 md:py-24 bg-black overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <motion.div
             className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-red-900/20 to-transparent"
@@ -145,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24 bg-zinc-950">
+      <section id="about" className="py-16 md:py-24 bg-black">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="left" delay={0.2}>
@@ -249,8 +254,8 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 md:py-24 bg-black relative">
-        <div className="absolute inset-0 z-0 opacity-10">
+      <section id="skills" className="py-16 md:py-24 bg-black">
+        <div className="absolute inset-0 z-0 opacity-50">
           <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
             {Array.from({ length: 144 }).map((_, i) => (
               <motion.div
@@ -391,7 +396,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 md:py-24 bg-zinc-950 relative">
+      <section id="experience" className="py-16 md:py-24 bg-black">
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
             {Array.from({ length: 144 }).map((_, i) => (
@@ -509,7 +514,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-24 bg-zinc-950 relative">
+      <section id="contact" className="py-16 md:py-24 bg-black">
         <div className="absolute inset-0 z-0 opacity-20">
           <motion.div
             className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-red-900/20 to-transparent"
@@ -607,7 +612,7 @@ export default function Home() {
 
       {/* Footer */}
       <AnimatedSection>
-        <footer className="py-8 border-t border-red-900/20 bg-black">
+        <footer className="py-8 border-t border-red-900/20 bg-black relative">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <motion.div
@@ -654,6 +659,7 @@ export default function Home() {
           </div>
         </footer>
       </AnimatedSection>
-    </div>
+
+    </main>
   )
 }
