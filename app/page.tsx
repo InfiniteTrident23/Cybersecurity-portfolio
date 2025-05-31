@@ -70,7 +70,7 @@ export default function Home() {
                 variant="outline"
                 className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all"
               >
-                Resume
+                Resumeee
               </Button>
             </Link>
           </motion.div>
