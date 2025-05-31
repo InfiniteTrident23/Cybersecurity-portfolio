@@ -125,12 +125,15 @@ export function ExperienceTimeline() {
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+        duration: 0.6,
       },
     },
   }
@@ -146,55 +149,62 @@ export function ExperienceTimeline() {
           className="space-y-8"
         >
           {/* Filter tabs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-2 justify-center md:justify-start">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-2 justify-center mb-6">
             <button
               onClick={() => setFilter(null)}
-              className={`px-4 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
+              className={`px-3 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
                 filter === null
                   ? "bg-red-500/20 text-red-400 border border-red-500/50"
                   : "bg-zinc-800/50 text-gray-400 border border-red-900/20 hover:bg-zinc-800 hover:text-white"
               }`}
             >
               <Building className="w-4 h-4" />
-              All Experience
+              <span className="whitespace-nowrap">All Experience</span>
             </button>
             <button
               onClick={() => setFilter("internship")}
-              className={`px-4 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
+              className={`px-3 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
                 filter === "internship"
                   ? "bg-red-500/20 text-red-400 border border-red-500/50"
                   : "bg-zinc-800/50 text-gray-400 border border-red-900/20 hover:bg-zinc-800 hover:text-white"
               }`}
             >
               <Briefcase className="w-4 h-4" />
-              Internships
+              <span className="whitespace-nowrap">Internships</span>
             </button>
             <button
               onClick={() => setFilter("simulation")}
-              className={`px-4 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
+              className={`px-3 py-2 rounded-md text-sm transition-all duration-300 flex items-center gap-2 ${
                 filter === "simulation"
                   ? "bg-red-500/20 text-red-400 border border-red-500/50"
                   : "bg-zinc-800/50 text-gray-400 border border-red-900/20 hover:bg-zinc-800 hover:text-white"
               }`}
             >
               <Target className="w-4 h-4" />
-              Simulations
+              <span className="whitespace-nowrap">Simulations</span>
             </button>
           </motion.div>
 
           {/* Experience grid */}
-          <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div variants={containerVariants} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence>
               {filteredExperiences.map((experience) => (
                 <motion.div
                   key={experience.id}
                   variants={itemVariants}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="group relative rounded-lg border border-red-900/20 bg-zinc-900/50 overflow-hidden hover:border-red-500/50 transition-all duration-300"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 17,
+                    duration: 0.3,
+                  }}
+                  className="group relative rounded-lg border border-red-900/20 bg-zinc-900/50 overflow-hidden hover:border-red-500/50 transition-all duration-300 shadow-lg hover:shadow-red-900/20"
                 >
                   {/* Terminal-style header */}
                   <div className="flex items-center justify-between px-4 py-2 bg-zinc-800/80 border-b border-red-900/20">
@@ -207,12 +217,15 @@ export function ExperienceTimeline() {
                     <div className="flex items-center space-x-2">{getCategoryIcon(experience.category)}</div>
                   </div>
 
-                  <div className="p-5 space-y-4">
-                    <div className="flex justify-between items-start">
+                  <div className="p-4 sm:p-5 space-y-3 sm:space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                       <h3 className="text-lg font-medium group-hover:text-red-400 transition-colors duration-300 text-white">
                         {experience.role}
                       </h3>
-                      <Badge variant="outline" className="text-xs bg-zinc-800/50 text-red-400 border-red-500/30">
+                      <Badge
+                        variant="outline"
+                        className="text-xs bg-zinc-800/50 text-red-400 border-red-500/30 self-start"
+                      >
                         {getCategoryName(experience.category)}
                       </Badge>
                     </div>
@@ -254,7 +267,7 @@ export function ExperienceTimeline() {
 
                     <button
                       onClick={() => setSelectedExperience(experience)}
-                      className="mt-4 w-full flex items-center justify-center px-4 py-2 rounded border border-red-900/30 bg-zinc-800/30 text-red-400 hover:bg-red-950/30 transition-all duration-300 text-sm group"
+                      className="mt-3 sm:mt-4 w-full flex items-center justify-center px-4 py-2 rounded border border-red-900/30 bg-zinc-800/30 text-red-400 hover:bg-red-950/30 active:bg-red-950/50 transition-all duration-300 text-sm group"
                     >
                       <span>View Details</span>
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform duration-300" />
@@ -269,7 +282,7 @@ export function ExperienceTimeline() {
 
       {/* Experience details modal */}
       <Dialog open={!!selectedExperience} onOpenChange={(open) => !open && setSelectedExperience(null)}>
-        <DialogContent className="sm:max-w-3xl bg-zinc-900/95 border border-red-900/30 text-white">
+        <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto bg-zinc-900/95 border border-red-900/30 text-white p-4 sm:p-6">
           <DialogHeader>
             <div className="flex items-center justify-between">
               <DialogTitle className="text-2xl flex items-center gap-2 text-red-400">
