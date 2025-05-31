@@ -11,8 +11,15 @@ export const metadata: Metadata = {
   description:
     "Professional portfolio of a Certified Ethical Hacker and cybersecurity specialist focusing on penetration testing and security research.",
   keywords: ["cybersecurity", "penetration testing", "ethical hacking", "CEH", "security research"],
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      { url: "/icon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/svg+xml" },
+    ],
+  },
 }
+
 
 export default function RootLayout({
   children,
