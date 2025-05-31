@@ -1,8 +1,15 @@
 "use client"
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Calendar, MapPin, Briefcase, ChevronRight, Building, Award, Target } from "lucide-react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Calendar, MapPin, Briefcase, ChevronRight, Building, Award, Target, X } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 
 type Experience = {
@@ -303,49 +310,63 @@ export function ExperienceTimeline() {
 
       {/* Experience details modal */}
       <Dialog open={!!selectedExperience} onOpenChange={(open) => !open && setSelectedExperience(null)}>
-        <DialogContent className="sm:max-w-3xl bg-zinc-900/95 border border-red-900/30 text-white">
-          <DialogHeader>
-            <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl flex items-center gap-2 text-red-400">
+        <DialogContent className="sm:max-w-3xl bg-zinc-900/95 border border-red-900/30 text-white p-4 sm:p-6 w-[95vw] max-h-[90vh] overflow-y-auto">
+          <div className="absolute right-4 top-4 z-10">
+            <DialogClose asChild>
+              <button className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                <X className="h-4 w-4 text-gray-400 hover:text-red-500 transition-colors" />
+                <span className="sr-only">Close</span>
+              </button>
+            </DialogClose>
+          </div>
+
+          <DialogHeader className="pt-2">
+            <div className="flex items-center pr-8">
+              <DialogTitle className="text-xl sm:text-2xl flex flex-wrap items-center gap-2 text-red-400">
                 {selectedExperience?.role}
-                <Badge variant="outline" className="ml-2 text-xs bg-zinc-800/50 text-red-400 border-red-500/30">
+                <Badge
+                  variant="outline"
+                  className="ml-0 sm:ml-2 mt-1 sm:mt-0 text-xs bg-zinc-800/50 text-red-400 border-red-500/30"
+                >
                   {selectedExperience && getCategoryName(selectedExperience.category)}
                 </Badge>
               </DialogTitle>
             </div>
-            <DialogDescription className="text-gray-400">{selectedExperience?.description}</DialogDescription>
+            <DialogDescription className="text-gray-400 text-sm sm:text-base">
+              {selectedExperience?.description}
+            </DialogDescription>
           </DialogHeader>
 
           {selectedExperience && (
-            <div className="space-y-6 mt-2">
+            <div className="space-y-5 mt-2">
               <div className="space-y-2">
                 <div className="flex items-center text-gray-300 text-sm">
-                  <Briefcase className="h-4 w-4 mr-2 text-red-500" />
+                  <Briefcase className="h-4 w-4 mr-2 text-red-500 flex-shrink-0" />
                   <span className="font-medium">{selectedExperience.company}</span>
                 </div>
                 <div className="flex items-center text-gray-300 text-sm">
-                  <MapPin className="h-4 w-4 mr-2 text-red-500" />
+                  <MapPin className="h-4 w-4 mr-2 text-red-500 flex-shrink-0" />
                   <span>{selectedExperience.location}</span>
                 </div>
                 <div className="flex items-center text-gray-300 text-sm">
-                  <Calendar className="h-4 w-4 mr-2 text-red-500" />
+                  <Calendar className="h-4 w-4 mr-2 text-red-500 flex-shrink-0" />
                   <span>
                     {selectedExperience.startDate} - {selectedExperience.endDate}
                   </span>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h4 className="text-lg font-medium text-red-400">Overview</h4>
                 <p className="text-gray-300 text-sm leading-relaxed">{selectedExperience.longDescription}</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h4 className="text-lg font-medium text-red-400">Key Responsibilities</h4>
                 <ul className="space-y-2">
                   {selectedExperience.responsibilities.map((responsibility, index) => (
                     <li key={index} className="flex items-start text-sm">
-                      <span className="text-red-500 mr-2 mt-1">
+                      <span className="text-red-500 mr-2 mt-1 flex-shrink-0">
                         <ChevronRight className="w-3 h-3" />
                       </span>
                       <span className="text-gray-300">{responsibility}</span>
@@ -354,7 +375,7 @@ export function ExperienceTimeline() {
                 </ul>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h4 className="text-lg font-medium text-red-400">Technologies & Skills</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedExperience.skills.map((skill, index) => (
@@ -366,20 +387,6 @@ export function ExperienceTimeline() {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-lg font-medium text-red-400">Key Achievements</h4>
-                <ul className="space-y-2">
-                  {selectedExperience.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start text-sm">
-                      <span className="text-red-500 mr-2 mt-1">
-                        <ChevronRight className="w-3 h-3" />
-                      </span>
-                      <span className="text-gray-300">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           )}
