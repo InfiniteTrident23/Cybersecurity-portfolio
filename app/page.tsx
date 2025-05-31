@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Shield, Code, Terminal, Lock, Server, Github, Linkedin, Mail, ChevronRight, ExternalLink, Network } from "lucide-react"
+import { Shield, Code, Terminal, Lock, Github, Linkedin, Mail, Network } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { StaggeredContainer, StaggeredItem } from "@/components/staggered-container"
 import { TypewriterText } from "@/components/typewriter-text"
@@ -61,12 +61,18 @@ export default function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Link href="/certificates/Siddharth%20Nigam%20Resume%20March%202025.pdf" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all">
+            <Link
+              href="/certificates/Siddharth%20Nigam%20Resume%20March%202025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                className="border-red-500 text-red-500 hover:bg-red-950 hover:text-white hover:scale-105 transition-all"
+              >
                 Resume
               </Button>
             </Link>
-
           </motion.div>
         </div>
       </motion.header>
@@ -94,22 +100,22 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 px-4 md:px-6">
-          <div className="grid md:grid-cols-2 items-center gap-12">
+          <div className="flex flex-col md:grid md:grid-cols-2 items-center gap-8 md:gap-12">
             {/* Left Side - Graphic */}
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="flex justify-center items-center h-full"
+              className="flex justify-center items-center h-full order-2 md:order-1"
             >
-              <div className="max-h-[400px] w-full">
+              <div className="max-h-[300px] md:max-h-[400px] w-full">
                 <AsciiConverter />
               </div>
             </motion.div>
 
             {/* Right side - Text Content */}
             <motion.div
-              className="space-y-6 text-center md:text-left"
+              className="space-y-6 text-center md:text-left order-1 md:order-2"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -124,7 +130,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
@@ -134,7 +140,7 @@ export default function Home() {
               </motion.h1>
 
               <motion.p
-                className="text-lg text-gray-400 md:text-xl max-w-2xl"
+                className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto md:mx-0"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.5 }}
@@ -142,8 +148,6 @@ export default function Home() {
                 3rd year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
                 vulnerabilities to strengthen security systems.
               </motion.p>
-
-              
             </motion.div>
           </div>
         </div>
@@ -285,7 +289,12 @@ export default function Home() {
                 title: "Penetration Testing",
                 description:
                   "Expert in identifying and exploiting vulnerabilities in networks, applications, and systems.",
-                skills: ["Web Application Testing", "Network Penetration", "Vulnerability Assessment", "Reconnaissance & OSINT"],
+                skills: [
+                  "Web Application Testing",
+                  "Network Penetration",
+                  "Vulnerability Assessment",
+                  "Reconnaissance & OSINT",
+                ],
               },
               {
                 icon: Lock,
@@ -346,7 +355,6 @@ export default function Home() {
           <AnimatedSection className="mt-12 pt-12 border-t border-red-900/20" delay={0.5}>
             <h3 className="text-2xl font-bold mb-8 text-center">Certifications</h3>
             <StaggeredContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.3}>
-
               <Link href={"/certificates/CEH%20Short%20training.jpg"} target="_blank" rel="noopener noreferrer">
                 <StaggeredItem>
                   <motion.div
@@ -435,7 +443,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <StaggeredContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.2}>
+          <StaggeredContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" staggerDelay={0.2}>
             {[
               {
                 title: "AD Security Project",
@@ -460,8 +468,7 @@ export default function Home() {
               },
               {
                 title: "KPI Management System (ongoing)",
-                description:
-                  "A comprehensive system for managemnt of KPIs for Manipal University Jaipur.",
+                description: "A comprehensive system for managemnt of KPIs for Manipal University Jaipur.",
                 tags: ["Web Dev", "TypeScript", "Next.js", "Tailwind CSS"],
                 image: "/certificates/KPI.jpg",
               },
@@ -475,20 +482,22 @@ export default function Home() {
                         alt={project.title}
                         width={700}
                         height={400}
-                        className="object-cover"
+                        className="object-cover w-full h-full"
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60"></div>
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 p-6"
+                      className="absolute bottom-0 left-0 right-0 p-4 md:p-6"
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-gray-400 mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
+                      <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+                      <p className="text-gray-400 mb-3 md:mb-4 text-sm md:text-base line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1 md:gap-2">
                         {project.tags.map((tag, tagIndex) => (
                           <motion.span
                             key={tagIndex}
@@ -509,7 +518,6 @@ export default function Home() {
               </StaggeredItem>
             ))}
           </StaggeredContainer>
-
         </div>
       </section>
 
@@ -654,8 +662,7 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
-            >
-            </motion.div>
+            ></motion.div>
           </div>
         </footer>
       </AnimatedSection>

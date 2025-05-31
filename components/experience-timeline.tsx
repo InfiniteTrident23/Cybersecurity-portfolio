@@ -60,8 +60,8 @@ const internships: Experience[] = [
 export function ExperienceTimeline() {
   return (
     <div className="w-full">
-      {/* Horizontal Timeline */}
-      <div className="relative">
+      {/* Desktop Timeline */}
+      <div className="hidden md:block relative">
         {/* Horizontal Line */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-red-900/50 transform -translate-y-1/2"></div>
 
@@ -69,7 +69,6 @@ export function ExperienceTimeline() {
         <div className="flex justify-between items-center relative">
           {internships.map((internship, index) => (
             <div key={index} className="relative flex-1 mx-4">
-
               {/* Card */}
               <motion.div
                 className="relative mt-16"
@@ -151,16 +150,15 @@ export function ExperienceTimeline() {
                     </motion.div>
                   </div>
                 </motion.div>
-
               </motion.div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Responsive Mobile View */}
-      <div className="md:hidden mt-12">
-        <div className="space-y-8">
+      {/* Mobile Timeline */}
+      <div className="md:hidden">
+        <div className="space-y-6">
           {internships.map((internship, index) => (
             <motion.div
               key={index}
@@ -172,7 +170,9 @@ export function ExperienceTimeline() {
             >
               {/* Mobile Timeline dot */}
               <div className="absolute left-0 top-6 w-3 h-3 rounded-full bg-red-600 border-2 border-zinc-900"></div>
-              <div className="absolute left-1.5 top-9 bottom-0 w-px bg-red-900/50"></div>
+              {index < internships.length - 1 && (
+                <div className="absolute left-1.5 top-9 bottom-0 w-px bg-red-900/50"></div>
+              )}
 
               {/* Mobile Card */}
               <motion.div
@@ -188,48 +188,41 @@ export function ExperienceTimeline() {
                     <h3 className="text-base font-bold text-white">{internship.role}</h3>
                     <div className="flex items-center text-gray-400 text-sm">
                       <Briefcase className="h-3 w-3 mr-2 text-red-500" />
-                      <span>{internship.company}</span>
+                      <span className="text-xs">{internship.company}</span>
                     </div>
                     <div className="flex items-center text-gray-400 text-sm">
                       <MapPin className="h-3 w-3 mr-2 text-red-500" />
-                      <span>{internship.location}</span>
+                      <span className="text-xs">{internship.location}</span>
                     </div>
                     <div className="flex items-center text-gray-400 text-sm">
                       <Calendar className="h-3 w-3 mr-2 text-red-500" />
-                      <span>
+                      <span className="text-xs">
                         {internship.startDate} - {internship.endDate}
                       </span>
                     </div>
                   </div>
 
-                  {/* Mobile Expandable content */}
-                  <motion.div
-                    className="overflow-hidden"
-                    initial={{ height: 0, opacity: 0 }}
-                    whileHover={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <div className="mt-4 pt-3 border-t border-red-900/20">
-                      <h4 className="font-semibold text-red-500 mb-2 text-sm">Responsibilities:</h4>
-                      <ul className="space-y-1 mb-3">
-                        {internship.description.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <ChevronRight className="h-3 w-3 text-red-500 mt-1 mr-2 flex-shrink-0" />
-                            <span className="text-gray-300 text-xs">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  {/* Mobile content - Always visible */}
+                  <div className="mt-4 pt-3 border-t border-red-900/20">
+                    <h4 className="font-semibold text-red-500 mb-2 text-sm">Responsibilities:</h4>
+                    <ul className="space-y-1 mb-3">
+                      {internship.description.map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <ChevronRight className="h-3 w-3 text-red-500 mt-1 mr-2 flex-shrink-0" />
+                          <span className="text-gray-300 text-xs leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                      <h4 className="font-semibold text-red-500 mb-2 text-sm">Skills:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {internship.skills.map((skill, i) => (
-                          <span key={i} className="text-xs bg-red-950/50 text-red-400 px-2 py-1 rounded">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                    <h4 className="font-semibold text-red-500 mb-2 text-sm">Skills:</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {internship.skills.map((skill, i) => (
+                        <span key={i} className="text-xs bg-red-950/50 text-red-400 px-2 py-1 rounded">
+                          {skill}
+                        </span>
+                      ))}
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
