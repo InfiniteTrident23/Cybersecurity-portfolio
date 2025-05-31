@@ -17,6 +17,7 @@ type Experience = {
   category: "internship" | "simulation" | "project"
   responsibilities: string[]
   skills: string[]
+  achievements: string[]
 }
 
 export function ExperienceTimeline() {
@@ -44,6 +45,12 @@ export function ExperienceTimeline() {
         "Investigated and reported security incidents, contributing to a 30% improvement in incident response time",
       ],
       skills: ["Vulnerability Assessment", "Web Testing", "API Testing", "Security Documentation"],
+      achievements: [
+        "Successfully identified critical vulnerabilities in client applications",
+        "Developed standardized testing procedures for the team",
+        "Contributed to improving client security posture significantly",
+        "Received recognition for thorough documentation and reporting",
+      ],
     },
     {
       id: "jpmorgan",
@@ -64,6 +71,12 @@ export function ExperienceTimeline() {
         "Processed 10,000+ email samples, applied CountVectorizer for feature extraction, and optimized model performance with an 80-20 training-test split",
       ],
       skills: ["Data Analysis", "Machine Learning", "Python", "Django", "Pandas"],
+      achievements: [
+        "Achieved 97.4% accuracy in email classification model",
+        "Successfully implemented enterprise-grade authentication system",
+        "Processed and analyzed large-scale datasets efficiently",
+        "Completed simulation with distinction",
+      ],
     },
     {
       id: "wesecure",
@@ -83,6 +96,12 @@ export function ExperienceTimeline() {
         "Tested state-of-the-art security tools, like SIEM, XDR, EDR, etc. enhancing threat detection capabilities",
       ],
       skills: ["Networking", "Firewalls", "SIEM", "Endpoint Security", "Technical Support", "XDR/EDR"],
+      achievements: [
+        "Successfully configured and optimized firewall rules",
+        "Implemented mobile device security policies",
+        "Gained proficiency in enterprise security tools",
+        "Contributed to improved network security posture",
+      ],
     },
   ]
 
@@ -119,7 +138,8 @@ export function ExperienceTimeline() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
+        delayChildren: 0.15,
       },
     },
   }
@@ -184,16 +204,30 @@ export function ExperienceTimeline() {
 
           {/* Experience grid */}
           <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {filteredExperiences.map((experience) => (
+            <AnimatePresence mode="wait">
+              {filteredExperiences.map((experience, index) => (
                 <motion.div
                   key={experience.id}
-                  variants={itemVariants}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.98, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.6,
+                      ease: [0.23, 1, 0.32, 1],
+                      delay: index * 0.1, // Stagger the entrance
+                    },
+                  }}
+                  exit={{ opacity: 0, scale: 0.98, y: -20 }}
+                  transition={{
+                    layout: {
+                      duration: 0.5,
+                      ease: [0.23, 1, 0.32, 1],
+                      type: "tween",
+                    },
+                  }}
                   className="group relative rounded-lg border border-red-900/20 bg-zinc-900/50 overflow-hidden hover:border-red-500/50 transition-all duration-300"
                 >
                   {/* Terminal-style header */}
@@ -334,6 +368,19 @@ export function ExperienceTimeline() {
                 </div>
               </div>
 
+              <div className="space-y-4">
+                <h4 className="text-lg font-medium text-red-400">Key Achievements</h4>
+                <ul className="space-y-2">
+                  {selectedExperience.achievements.map((achievement, index) => (
+                    <li key={index} className="flex items-start text-sm">
+                      <span className="text-red-500 mr-2 mt-1">
+                        <ChevronRight className="w-3 h-3" />
+                      </span>
+                      <span className="text-gray-300">{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           )}
         </DialogContent>
