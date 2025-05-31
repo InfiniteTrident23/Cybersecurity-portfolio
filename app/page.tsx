@@ -10,6 +10,7 @@ import { ExperienceTimeline } from "@/components/experience-timeline"
 import { motion } from "framer-motion"
 import AsciiConverter from "@/components/ascii-converter"
 import CodeRain from "@/components/code-rain"
+import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
   return (
@@ -571,47 +572,7 @@ export default function Home() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <form className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <motion.input
-                      id="name"
-                      type="text"
-                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
-                      placeholder="Your Name"
-                      whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <motion.input
-                      id="email"
-                      type="email"
-                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
-                      placeholder="your@email.com"
-                      whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message
-                    </label>
-                    <motion.textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-3 py-2 bg-zinc-900 border border-red-900/20 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
-                      placeholder="Your message..."
-                      whileFocus={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
-                    />
-                  </div>
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all">
-                    Send Message
-                  </Button>
-                </form>
+                <ContactForm />
               </motion.div>
             </AnimatedSection>
           </div>
@@ -666,7 +627,7 @@ export default function Home() {
           </div>
         </footer>
       </AnimatedSection>
-
+      {/*End of page */}
     </main>
   )
 }
