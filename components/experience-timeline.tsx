@@ -35,6 +35,31 @@ export function ExperienceTimeline() {
 
   const experiences: Experience[] = [
     {
+      id: "EY Ind.",
+      role: "VAPT Intern",
+      company: " Ernst & Young India",
+      location: "Gurugram, Haryana",
+      startDate: "May 2025",
+      endDate: "Jul 2025",
+      description: "Completed a self-driven cybersecurity training internship with focus on offensive security labs and real-world testing scenarios.",
+      longDescription:
+        "As a Cybersecurity Intern at EY India, I participated in a structured, learning-oriented internship under the VAPT team. The focus was on building practical skills in offensive security through platforms like PortSwigger, Hack The Box, and OWASP Juice Shop. I explored common vulnerabilities, attack chains, and the bug bounty process. Though not assigned to client-facing tasks due to access limitations, I completed extensive self-driven technical learning to simulate real-world testing scenarios.",
+      category: "internship",
+      responsibilities: [
+        "Completed over 170 labs on PortSwigger Web Security Academy covering OWASP Top 10 vulnerabilities",
+        "Solved multiple Hack The Box rooms to strengthen practical pentesting skills",
+        "Tested and explored the OWASP Juice Shop vulnerable application in depth",
+        "Studied bug bounty workflows including reconnaissance, reporting, and disclosure practices",
+      ],
+      skills: ["Web Application Security", "OWASP Top 10", "Burp Suite", "Linux", "Bug Bounty Flow"],
+      achievements: [
+        "Completed 170+ hands-on labs on PortSwigger",
+        "Strengthened practical hacking skills with Hack The Box",
+        "Built a solid understanding of common web vulnerabilities",
+        "Developed a structured approach to bug bounty research",
+      ],
+    },
+    {
       id: "safeyourweb",
       role: "Cybersecurity VAPT Intern",
       company: "SafeYourWeb",

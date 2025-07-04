@@ -166,7 +166,7 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/certificates/selfie.jpg?height=600&width=600"
+                    src="/certificates/selfie.jpg?height=60 0&width=600"
                     alt="Profile"
                     width={600}
                     height={600}
