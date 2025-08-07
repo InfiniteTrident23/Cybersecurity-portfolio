@@ -146,7 +146,7 @@ export default function Home() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.5 }}
               >
-                3rd year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
+                4th year B.Tech student specializing in cybersecurity with a passion for identifying and exploiting
                 vulnerabilities to strengthen security systems.
               </motion.p>
             </motion.div>
@@ -234,7 +234,7 @@ export default function Home() {
 
                 <StaggeredContainer className="grid grid-cols-2 gap-4 pt-4" staggerDelay={0.1}>
                   {[
-                    "B.Tech Student (3rd Year)",
+                    "B.Tech Student (4th Year)",
                     "Certified Ethical Hacker",
                     "Penetration Testing",
                     "Network Security",
