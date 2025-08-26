@@ -63,7 +63,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Link
-              href="/certificates/Siddharth%20Nigam%20Resume%20March%202025.pdf"
+              href="/certificates/Siddharth Nigam Resume July 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -158,11 +158,11 @@ export default function Home() {
       <section id="about" className="py-16 md:py-24 bg-black">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <AnimatedSection direction="left" delay={0.2}>
+            <AnimatedSection direction="left" delay={0.2} key="profile-section">
               <div className="relative">
                 <motion.div
-                  className="aspect-square rounded-lg overflow-hidden border-2 border-red-500/50 relative"
-                  whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.8)" }}
+                  className="aspect-square rounded-lg overflow-hidden border-2 border-red-500/50 relative transition-all duration-300 hover:border-red-500/80"
+                  whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Image
@@ -359,8 +359,8 @@ export default function Home() {
               <Link href={"/certificates/CEH%20Short%20training.jpg"} target="_blank" rel="noopener noreferrer">
                 <StaggeredItem>
                   <motion.div
-                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6"
-                    whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
+                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6 transition-all duration-300 hover:border-red-500/50"
+                    whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div
@@ -381,8 +381,8 @@ export default function Home() {
               <Link href={"/certificates/CCNA%20Certificate.jpg"} target="_blank" rel="noopener noreferrer">
                 <StaggeredItem>
                   <motion.div
-                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6"
-                    whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
+                    className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6 transition-all duration-300 hover:border-red-500/50"
+                    whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div
@@ -550,8 +550,8 @@ export default function Home() {
               ].map((contact, index) => (
                 <StaggeredItem key={index}>
                   <motion.div
-                    className="bg-black border border-red-900/20 rounded-lg p-6 flex items-start gap-4"
-                    whileHover={{ scale: 1.02, borderColor: "rgba(239, 68, 68, 0.5)" }}
+                    className="bg-black border border-red-900/20 rounded-lg p-6 flex items-start gap-4 transition-all duration-300 hover:border-red-500/50"
+                    whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div whileHover={{ rotate: 5, scale: 1.1 }} transition={{ duration: 0.3 }}>
