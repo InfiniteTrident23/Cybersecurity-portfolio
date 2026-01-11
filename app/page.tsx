@@ -63,7 +63,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Link
-              href="/certificates/Siddharth Nigam Resume July 2025.pdf"
+              href="/certificates/Siddharth Nigam Resume Dec 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -356,7 +356,7 @@ export default function Home() {
           <AnimatedSection className="mt-12 pt-12 border-t border-red-900/20" delay={0.5}>
             <h3 className="text-2xl font-bold mb-8 text-center">Certifications</h3>
             <StaggeredContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.3}>
-              <Link href={"/certificates/CEH%20Short%20training.jpg"} target="_blank" rel="noopener noreferrer">
+              <Link href={"/certificates/ECC-CEH-Certificate.pdf"} target="_blank" rel="noopener noreferrer">
                 <StaggeredItem>
                   <motion.div
                     className="bg-zinc-950 border border-red-900/20 rounded-lg p-6 flex items-center gap-6 transition-all duration-300 hover:border-red-500/50"
